@@ -9,38 +9,206 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TermsRouteImport } from './routes/terms'
+import { Route as ServicesRouteImport } from './routes/services'
+import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as LocationsRouteImport } from './routes/locations'
+import { Route as CookiesRouteImport } from './routes/cookies'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ServicesServiceRouteImport } from './routes/services.$service'
+import { Route as LocationsLocationRouteImport } from './routes/locations.$location'
 
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocationsRoute = LocationsRouteImport.update({
+  id: '/locations',
+  path: '/locations',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CookiesRoute = CookiesRouteImport.update({
+  id: '/cookies',
+  path: '/cookies',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServicesServiceRoute = ServicesServiceRouteImport.update({
+  id: '/$service',
+  path: '/$service',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const LocationsLocationRoute = LocationsLocationRouteImport.update({
+  id: '/$location',
+  path: '/$location',
+  getParentRoute: () => LocationsRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/cookies': typeof CookiesRoute
+  '/locations': typeof LocationsRouteWithChildren
+  '/privacy': typeof PrivacyRoute
+  '/services': typeof ServicesRouteWithChildren
+  '/terms': typeof TermsRoute
+  '/locations/$location': typeof LocationsLocationRoute
+  '/services/$service': typeof ServicesServiceRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/cookies': typeof CookiesRoute
+  '/locations': typeof LocationsRouteWithChildren
+  '/privacy': typeof PrivacyRoute
+  '/services': typeof ServicesRouteWithChildren
+  '/terms': typeof TermsRoute
+  '/locations/$location': typeof LocationsLocationRoute
+  '/services/$service': typeof ServicesServiceRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/cookies': typeof CookiesRoute
+  '/locations': typeof LocationsRouteWithChildren
+  '/privacy': typeof PrivacyRoute
+  '/services': typeof ServicesRouteWithChildren
+  '/terms': typeof TermsRoute
+  '/locations/$location': typeof LocationsLocationRoute
+  '/services/$service': typeof ServicesServiceRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/cookies'
+    | '/locations'
+    | '/privacy'
+    | '/services'
+    | '/terms'
+    | '/locations/$location'
+    | '/services/$service'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/cookies'
+    | '/locations'
+    | '/privacy'
+    | '/services'
+    | '/terms'
+    | '/locations/$location'
+    | '/services/$service'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/cookies'
+    | '/locations'
+    | '/privacy'
+    | '/services'
+    | '/terms'
+    | '/locations/$location'
+    | '/services/$service'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  ContactRoute: typeof ContactRoute
+  CookiesRoute: typeof CookiesRoute
+  LocationsRoute: typeof LocationsRouteWithChildren
+  PrivacyRoute: typeof PrivacyRoute
+  ServicesRoute: typeof ServicesRouteWithChildren
+  TermsRoute: typeof TermsRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/locations': {
+      id: '/locations'
+      path: '/locations'
+      fullPath: '/locations'
+      preLoaderRoute: typeof LocationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cookies': {
+      id: '/cookies'
+      path: '/cookies'
+      fullPath: '/cookies'
+      preLoaderRoute: typeof CookiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,11 +216,56 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/services/$service': {
+      id: '/services/$service'
+      path: '/$service'
+      fullPath: '/services/$service'
+      preLoaderRoute: typeof ServicesServiceRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/locations/$location': {
+      id: '/locations/$location'
+      path: '/$location'
+      fullPath: '/locations/$location'
+      preLoaderRoute: typeof LocationsLocationRouteImport
+      parentRoute: typeof LocationsRoute
+    }
   }
 }
 
+interface LocationsRouteChildren {
+  LocationsLocationRoute: typeof LocationsLocationRoute
+}
+
+const LocationsRouteChildren: LocationsRouteChildren = {
+  LocationsLocationRoute: LocationsLocationRoute,
+}
+
+const LocationsRouteWithChildren = LocationsRoute._addFileChildren(
+  LocationsRouteChildren,
+)
+
+interface ServicesRouteChildren {
+  ServicesServiceRoute: typeof ServicesServiceRoute
+}
+
+const ServicesRouteChildren: ServicesRouteChildren = {
+  ServicesServiceRoute: ServicesServiceRoute,
+}
+
+const ServicesRouteWithChildren = ServicesRoute._addFileChildren(
+  ServicesRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  ContactRoute: ContactRoute,
+  CookiesRoute: CookiesRoute,
+  LocationsRoute: LocationsRouteWithChildren,
+  PrivacyRoute: PrivacyRoute,
+  ServicesRoute: ServicesRouteWithChildren,
+  TermsRoute: TermsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
