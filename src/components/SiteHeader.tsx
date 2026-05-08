@@ -34,11 +34,10 @@ export function SiteHeader() {
               {n.label}
             </Link>
           ))}
-          <a href={`tel:${SITE.phoneTel}`} className="inline-flex items-center gap-1 text-sm font-medium text-primary">
-            <Phone className="h-4 w-4" /> {SITE.phone}
-          </a>
           <Button asChild className="bg-accent text-accent-foreground hover:bg-accent/90">
-            <Link to="/contact">Get a Quote</Link>
+            <a href={`tel:${SITE.phoneTel}`} className="inline-flex items-center gap-2">
+              <Phone className="h-4 w-4" /> Call Me {SITE.phone}
+            </a>
           </Button>
         </nav>
         <button
