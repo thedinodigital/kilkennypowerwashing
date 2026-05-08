@@ -34,9 +34,15 @@ export function SiteHeader() {
               {n.label}
             </Link>
           ))}
-          <a href={`tel:${SITE.phoneTel}`} className="inline-flex items-center gap-1 text-sm font-medium text-primary">
-            <Phone className="h-4 w-4" /> {SITE.phone}
-          </a>
+          {SITE.phone.includes("@") ? (
+            <a href={`mailto:${SITE.phone}`} className="inline-flex items-center gap-1 text-sm font-medium text-primary">
+              <Mail className="h-4 w-4" /> {SITE.phone}
+            </a>
+          ) : (
+            <a href={`tel:${SITE.phoneTel}`} className="inline-flex items-center gap-1 text-sm font-medium text-primary">
+              <Phone className="h-4 w-4" /> {SITE.phone}
+            </a>
+          )}
           <Button asChild className="bg-accent text-accent-foreground hover:bg-accent/90">
             <Link to="/contact">Get a Quote</Link>
           </Button>
