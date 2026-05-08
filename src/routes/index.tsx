@@ -7,7 +7,7 @@ import { LocationsGrid } from "@/components/LocationsGrid";
 import { TrustStrip, HowItWorks } from "@/components/Sections";
 import { Faq } from "@/components/Faq";
 import { Button } from "@/components/ui/button";
-import { Phone } from "lucide-react";
+import { Phone, Mail } from "lucide-react";
 import heroImg from "@/assets/kilkenny-driveway-before-after.jpg";
 
 const FAQS = [
@@ -50,7 +50,7 @@ export const Route = createFileRoute("/")({
         "@type": "LocalBusiness",
         name: SITE.name,
         url: SITE.url,
-        telephone: SITE.phone,
+        telephone: SITE.phone.includes("@") ? undefined : SITE.phone,
         email: SITE.email,
         address: {
           "@type": "PostalAddress",
@@ -91,11 +91,19 @@ function HomePage() {
               <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
                 <a href="#quote">Get a Free Quote</a>
               </Button>
-              <Button asChild size="lg" variant="outline">
-                <a href={`tel:${SITE.phoneTel}`} className="inline-flex items-center gap-2">
-                  <Phone className="h-4 w-4" /> Call {SITE.phone}
-                </a>
-              </Button>
+              {SITE.phone.includes("@") ? (
+                <Button asChild size="lg" variant="outline">
+                  <a href={`mailto:${SITE.phone}`} className="inline-flex items-center gap-2">
+                    <Mail className="h-4 w-4" /> Email Us
+                  </a>
+                </Button>
+              ) : (
+                <Button asChild size="lg" variant="outline">
+                  <a href={`tel:${SITE.phoneTel}`} className="inline-flex items-center gap-2">
+                    <Phone className="h-4 w-4" /> Call {SITE.phone}
+                  </a>
+                </Button>
+              )}
             </div>
             {/* PLACEHOLDER — REPLACE WITH REAL PHOTO */}
             <img

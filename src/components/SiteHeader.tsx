@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Phone, Menu, X } from "lucide-react";
+import { Phone, Menu, X, Mail } from "lucide-react";
 import { useState } from "react";
 import { SITE } from "@/lib/site";
 import { Button } from "@/components/ui/button";
@@ -34,9 +34,15 @@ export function SiteHeader() {
               {n.label}
             </Link>
           ))}
-          <a href={`tel:${SITE.phoneTel}`} className="inline-flex items-center gap-1 text-sm font-medium text-primary">
-            <Phone className="h-4 w-4" /> {SITE.phone}
-          </a>
+          {SITE.phone.includes("@") ? (
+            <a href={`mailto:${SITE.phone}`} className="inline-flex items-center gap-1 text-sm font-medium text-primary">
+              <Mail className="h-4 w-4" /> {SITE.phone}
+            </a>
+          ) : (
+            <a href={`tel:${SITE.phoneTel}`} className="inline-flex items-center gap-1 text-sm font-medium text-primary">
+              <Phone className="h-4 w-4" /> {SITE.phone}
+            </a>
+          )}
           <Button asChild className="bg-accent text-accent-foreground hover:bg-accent/90">
             <Link to="/contact">Get a Quote</Link>
           </Button>
@@ -62,9 +68,15 @@ export function SiteHeader() {
                 {n.label}
               </Link>
             ))}
-            <a href={`tel:${SITE.phoneTel}`} className="py-2 text-base font-medium text-primary inline-flex items-center gap-2">
-              <Phone className="h-4 w-4" /> {SITE.phone}
-            </a>
+            {SITE.phone.includes("@") ? (
+              <a href={`mailto:${SITE.phone}`} className="py-2 text-base font-medium text-primary inline-flex items-center gap-2">
+                <Mail className="h-4 w-4" /> {SITE.phone}
+              </a>
+            ) : (
+              <a href={`tel:${SITE.phoneTel}`} className="py-2 text-base font-medium text-primary inline-flex items-center gap-2">
+                <Phone className="h-4 w-4" /> {SITE.phone}
+              </a>
+            )}
           </div>
         </div>
       )}
