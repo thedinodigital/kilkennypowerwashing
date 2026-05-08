@@ -7,7 +7,7 @@ import { LocationsGrid } from "@/components/LocationsGrid";
 import { TrustStrip, HowItWorks } from "@/components/Sections";
 import { Faq } from "@/components/Faq";
 import { Button } from "@/components/ui/button";
-import { Phone } from "lucide-react";
+import { Phone, Mail } from "lucide-react";
 import heroImg from "@/assets/kilkenny-driveway-before-after.jpg";
 
 const FAQS = [
