@@ -3,6 +3,7 @@ import { Phone, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { SITE } from "@/lib/site";
 import { Button } from "@/components/ui/button";
+import logo from "@/assets/logo.png";
 
 const NAV = [
   { to: "/", label: "Home" },
@@ -16,11 +17,15 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
   return (
     <header className="sticky top-0 z-40 w-full border-b border-border bg-background/95 backdrop-blur">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
-        <Link to="/" className="flex items-center gap-2 font-semibold text-primary">
-          <span className="grid h-9 w-9 place-items-center rounded-md bg-primary text-primary-foreground text-sm">KP</span>
-          <span className="hidden sm:inline text-base">Kilkenny Power Washing</span>
-          <span className="sm:hidden text-base">Kilkenny PW</span>
+      <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-4">
+        <Link to="/" className="flex items-center gap-3 font-semibold text-primary">
+          <img
+            src={logo}
+            alt="Kilkenny Power Washing logo"
+            className="h-14 w-14 object-contain mix-blend-multiply"
+            loading="eager"
+          />
+          <span className="hidden sm:inline text-base leading-tight">Kilkenny Power Washing</span>
         </Link>
         <nav className="hidden items-center gap-6 md:flex">
           {NAV.map((n) => (
