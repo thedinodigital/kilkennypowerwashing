@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Phone, Menu, X } from "lucide-react";
+import { Phone, Menu, X, Mail } from "lucide-react";
 import { useState } from "react";
 import { SITE } from "@/lib/site";
 import { Button } from "@/components/ui/button";
