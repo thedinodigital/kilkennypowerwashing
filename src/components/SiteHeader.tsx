@@ -68,9 +68,15 @@ export function SiteHeader() {
                 {n.label}
               </Link>
             ))}
-            <a href={`tel:${SITE.phoneTel}`} className="py-2 text-base font-medium text-primary inline-flex items-center gap-2">
-              <Phone className="h-4 w-4" /> {SITE.phone}
-            </a>
+            {SITE.phone.includes("@") ? (
+              <a href={`mailto:${SITE.phone}`} className="py-2 text-base font-medium text-primary inline-flex items-center gap-2">
+                <Mail className="h-4 w-4" /> {SITE.phone}
+              </a>
+            ) : (
+              <a href={`tel:${SITE.phoneTel}`} className="py-2 text-base font-medium text-primary inline-flex items-center gap-2">
+                <Phone className="h-4 w-4" /> {SITE.phone}
+              </a>
+            )}
           </div>
         </div>
       )}
