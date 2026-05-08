@@ -22,16 +22,12 @@ function ContactPage() {
           Tell us what you need and we'll have a quote with you within 24 hours.
         </p>
         <div className="mt-6 space-y-3 text-sm">
-          {SITE.phone && !SITE.phone.includes("@") && (
-            <a href={`tel:${SITE.phoneTel}`} className="flex items-center gap-2 text-foreground hover:text-primary">
-              <Phone className="h-4 w-4" /> {SITE.phone}
-            </a>
-          )}
-          {SITE.email && (
-            <a href={`mailto:${SITE.email}`} className="flex items-center gap-2 text-foreground hover:text-primary">
-              <Mail className="h-4 w-4" /> {SITE.email}
-            </a>
-          )}
+          <a href={`tel:${SITE.phoneTel}`} className="flex items-center gap-2 text-foreground hover:text-primary">
+            <Phone className="h-4 w-4" /> {SITE.phone}
+          </a>
+          <a href={`mailto:${SITE.email}`} className="flex items-center gap-2 text-foreground hover:text-primary">
+            <Mail className="h-4 w-4" /> {SITE.email}
+          </a>
           <div className="flex items-center gap-2 text-foreground">
             <MapPin className="h-4 w-4" /> {SITE.area}, Ireland
           </div>

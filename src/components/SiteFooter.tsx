@@ -13,16 +13,12 @@ export function SiteFooter() {
             Driveways, patios, roofs and more — covering all of {SITE.area}.
           </p>
           <div className="mt-4 space-y-2 text-sm">
-            {SITE.phone && !SITE.phone.includes("@") && (
-              <a href={`tel:${SITE.phoneTel}`} className="flex items-center gap-2 text-foreground hover:text-primary">
-                <Phone className="h-4 w-4" /> {SITE.phone}
-              </a>
-            )}
-            {SITE.email && (
-              <a href={`mailto:${SITE.email}`} className="flex items-center gap-2 text-foreground hover:text-primary">
-                <Mail className="h-4 w-4" /> {SITE.email}
-              </a>
-            )}
+            <a href={`tel:${SITE.phoneTel}`} className="flex items-center gap-2 text-foreground hover:text-primary">
+              <Phone className="h-4 w-4" /> {SITE.phone}
+            </a>
+            <a href={`mailto:${SITE.email}`} className="flex items-center gap-2 text-foreground hover:text-primary">
+              <Mail className="h-4 w-4" /> {SITE.email}
+            </a>
           </div>
         </div>
         <div>
