@@ -3,10 +3,9 @@ export const SITE = {
   name: "Kilkenny Power Washing",
   domain: "kilkennypowerwashing.ie",
   url: "https://kilkennypowerwashing.ie",
-  phone: "[CONTACT NUMBER]",
-  // tel: link uses a neutral placeholder — replace with E.164 once known.
-  phoneTel: "+353000000000",
-  email: "info@kilkennypowerwashing.ie",
+  phone: "087 404 1811",
+  phoneTel: "+353874041811",
+  email: "kilkennypowerwash@gmail.com",
   address: "[ADDRESS TO BE CONFIRMED], County Kilkenny, Ireland",
   area: "County Kilkenny",
   legalDisclosure:
