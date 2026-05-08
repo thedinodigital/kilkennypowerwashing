@@ -91,11 +91,19 @@ function HomePage() {
               <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
                 <a href="#quote">Get a Free Quote</a>
               </Button>
-              <Button asChild size="lg" variant="outline">
-                <a href={`tel:${SITE.phoneTel}`} className="inline-flex items-center gap-2">
-                  <Phone className="h-4 w-4" /> Call {SITE.phone}
-                </a>
-              </Button>
+              {SITE.phone.includes("@") ? (
+                <Button asChild size="lg" variant="outline">
+                  <a href={`mailto:${SITE.phone}`} className="inline-flex items-center gap-2">
+                    <Mail className="h-4 w-4" /> Email Us
+                  </a>
+                </Button>
+              ) : (
+                <Button asChild size="lg" variant="outline">
+                  <a href={`tel:${SITE.phoneTel}`} className="inline-flex items-center gap-2">
+                    <Phone className="h-4 w-4" /> Call {SITE.phone}
+                  </a>
+                </Button>
+              )}
             </div>
             {/* PLACEHOLDER — REPLACE WITH REAL PHOTO */}
             <img
