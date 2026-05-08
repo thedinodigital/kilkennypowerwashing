@@ -17,15 +17,15 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
   return (
     <header className="sticky top-0 z-40 w-full border-b border-border bg-background/95 backdrop-blur">
-      <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-4">
+      <div className="mx-auto flex h-24 max-w-6xl items-center justify-between px-4">
         <Link to="/" className="flex items-center gap-3 font-semibold text-primary">
           <img
             src={logo}
             alt="Kilkenny Power Washing logo"
-            className="h-14 w-14 object-contain mix-blend-multiply"
+            className="h-20 w-20 md:h-24 md:w-24 object-contain"
             loading="eager"
           />
-          <span className="hidden sm:inline text-base leading-tight">Kilkenny Power Washing</span>
+          <span className="sr-only">Kilkenny Power Washing</span>
         </Link>
         <nav className="hidden items-center gap-6 md:flex">
           {NAV.map((n) => (
