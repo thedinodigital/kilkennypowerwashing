@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { z } from "zod";
+import { useServerFn } from "@tanstack/react-start";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -7,6 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { CheckCircle2 } from "lucide-react";
 import { SERVICES } from "@/lib/site";
+import { submitLead } from "@/lib/lead.functions";
 
 const schema = z.object({
   name: z.string().trim().min(2, "Please enter your name").max(100),
@@ -29,8 +31,11 @@ export function LeadForm({ defaultService, compact }: Props) {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitted, setSubmitted] = useState(false);
   const [consent, setConsent] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+  const sendLead = useServerFn(submitLead);
 
-  function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const fd = new FormData(e.currentTarget);
     const data = {
@@ -53,9 +58,18 @@ export function LeadForm({ defaultService, compact }: Props) {
       return;
     }
     setErrors({});
-    // v1: log + success state. To be wired to a Netlify Function on migration.
-    console.log("Lead submitted:", result.data);
-    setSubmitted(true);
+    setSubmitError(null);
+    setSubmitting(true);
+    try {
+      const { consent: _c, ...payload } = result.data;
+      await sendLead({ data: payload });
+      setSubmitted(true);
+    } catch (err) {
+      console.error(err);
+      setSubmitError("Sorry, something went wrong. Please call us or try again.");
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   if (submitted) {
@@ -108,8 +122,9 @@ export function LeadForm({ defaultService, compact }: Props) {
         </Label>
       </div>
       {errors.consent && <p className="text-xs text-destructive">{errors.consent}</p>}
-      <Button type="submit" size="lg" className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
-        Request My Free Quote
+      {submitError && <p className="text-sm text-destructive">{submitError}</p>}
+      <Button type="submit" size="lg" disabled={submitting} className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
+        {submitting ? "Sending…" : "Request My Free Quote"}
       </Button>
     </form>
   );
