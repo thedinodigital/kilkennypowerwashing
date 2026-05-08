@@ -50,7 +50,7 @@ export const Route = createFileRoute("/")({
         "@type": "LocalBusiness",
         name: SITE.name,
         url: SITE.url,
-        telephone: SITE.phone,
+        telephone: SITE.phone.includes("@") ? undefined : SITE.phone,
         email: SITE.email,
         address: {
           "@type": "PostalAddress",
