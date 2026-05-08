@@ -18,7 +18,6 @@ export function SiteHeader() {
     <header className="sticky top-0 z-40 w-full border-b border-border bg-background/95 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
         <Link to="/" className="flex items-center gap-2 font-semibold text-primary">
-          <span className="grid h-9 w-9 place-items-center rounded-md bg-primary text-primary-foreground text-sm">KP</span>
           <span className="hidden sm:inline text-base">Kilkenny Power Washing</span>
           <span className="sm:hidden text-base">Kilkenny PW</span>
         </Link>
