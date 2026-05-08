@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { z } from "zod";
-import { useServerFn } from "@tanstack/react-start";
+// removed: useServerFn — now using direct fetch
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -33,8 +33,6 @@ export function LeadForm({ defaultService, compact }: Props) {
   const [consent, setConsent] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
-  const sendLead = useServerFn(submitLead);
-
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const fd = new FormData(e.currentTarget);
@@ -62,7 +60,7 @@ export function LeadForm({ defaultService, compact }: Props) {
     setSubmitting(true);
     try {
       const { consent: _c, ...payload } = result.data;
-      await sendLead({ data: payload });
+      await submitLead(payload);
       setSubmitted(true);
     } catch (err) {
       console.error(err);
