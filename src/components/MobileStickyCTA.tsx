@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Phone, MessageSquare } from "lucide-react";
+import { Phone, MessageSquare, Mail } from "lucide-react";
 import { SITE } from "@/lib/site";
 
 export function MobileStickyCTA() {
