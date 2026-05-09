@@ -1,0 +1,482 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'Power Washing Kilkenny | Driveways, Patios, Roofs | Kilkenny Power Washing';
+const description =
+  'Professional power washing in Kilkenny. Driveways, patios, roofs, render, decking and farmyard/commercial. Fully insured local contractor. Free quotes within 24 hours.';
+
+const services = [
+  {
+    name: 'Driveway Cleaning',
+    short: 'Bring tarmac, concrete and block paving back to life.',
+    price: '€120–€280',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22a8 8 0 0 1-8-8c0-3.68 2.5-6.79 6-7.7V4h4v2.3c3.5.91 6 4.02 6 7.7a8 8 0 0 1-8 8z"/><path d="M12 2v2"/><path d="M4.93 4.93l1.41 1.41"/><path d="M19.07 4.93l-1.41 1.41"/></svg>`,
+  },
+  {
+    name: 'Patio Cleaning',
+    short: 'Lift years of moss, algae and grime from your patio.',
+    price: '€100–€250',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h18"/><path d="M3 12h18"/><path d="M3 17h18"/></svg>`,
+  },
+  {
+    name: 'Roof Cleaning',
+    short: 'Safe soft-washing for tiles and slate. No high-pressure damage.',
+    price: '€350–€900',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>`,
+  },
+  {
+    name: 'Render Soft-Washing',
+    short: 'Gentle wash for pebbledash and painted render — no scrubbing.',
+    price: '€250–€700',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="16" height="20" x="4" y="2" rx="2" ry="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M12 10h.01"/><path d="M12 14h.01"/><path d="M16 10h.01"/><path d="M16 14h.01"/><path d="M8 10h.01"/><path d="M8 14h.01"/></svg>`,
+  },
+  {
+    name: 'Decking Restoration',
+    short: 'Strip back the grey, bring out the timber underneath.',
+    price: '€150–€400',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 12H3"/><path d="M15 6H3"/><path d="M15 18H3"/><path d="m19 10-4 2 4 2"/></svg>`,
+  },
+  {
+    name: 'Farmyard & Commercial',
+    short: 'Yards, sheds, forecourts and large concrete areas.',
+    price: 'Quoted per job',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4c0-1.1.9-2 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4z"/><path d="M3 10h18"/><path d="M10 3v18"/></svg>`,
+  },
+];
+
+const areas = [
+  { name: 'Kilkenny City', nearby: 'Loughboy, St Canice\'s, Ferrybank' },
+  { name: 'Callan', nearby: 'Kells, Mooncoin' },
+  { name: 'Thomastown', nearby: 'Inistioge, Stoneyford' },
+  { name: 'Castlecomer', nearby: 'Clogh, Moneenroe' },
+  { name: 'Graiguenamanagh', nearby: 'Tinnahinch, Inistioge' },
+  { name: 'Bennettsbridge', nearby: 'Stoneyford, Thomastown' },
+  { name: 'Freshford', nearby: 'Three Castles, Ballyragget' },
+  { name: 'Gowran', nearby: 'Paulstown, Goresbridge' },
+];
+
+const faqs = [
+  {
+    q: 'How much does power washing cost in Kilkenny?',
+    a: 'Most domestic driveway cleans fall between €120 and €280 depending on size and condition. Patios usually run €100–€250, and roof soft-washing typically €350–€900. You\'ll get an exact price after a free site visit — no obligation.',
+  },
+  {
+    q: 'How long does power washing take?',
+    a: 'An average driveway takes 2–4 hours. A patio is usually a half-day. Roof soft-washing takes longer because the chemical needs dwell time. Your contractor will give a clear time estimate up front.',
+  },
+  {
+    q: 'Will power washing damage my driveway or patio?',
+    a: 'Not when it\'s done properly. The right pressure, nozzle and technique vary by surface — that\'s why a competent local contractor matters. Block paving may need re-sanding afterwards, and that\'s included in the quote where required.',
+  },
+  {
+    q: 'Is the contractor insured?',
+    a: 'Yes. We only pass leads to a fully-insured local contractor. Public liability cover is in place for every job.',
+  },
+  {
+    q: 'Do you offer roof cleaning safely?',
+    a: 'Roofs are soft-washed using low pressure and a biocide treatment. We don\'t blast tiles or slate at high pressure — that causes damage and shortens roof life.',
+  },
+  {
+    q: 'What areas of County Kilkenny do you cover?',
+    a: 'All of County Kilkenny — Kilkenny City, Callan, Thomastown, Castlecomer, Graiguenamanagh, Bennettsbridge, Freshford, Gowran, and the surrounding villages and townlands.',
+  },
+];
+
+const localBusinessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'Kilkenny Power Washing',
+  url: 'https://kilkennypowerwashing.ie',
+  telephone: '+353874041811',
+  email: 'kilkennypowerwash@gmail.com',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Kilkenny City',
+    addressRegion: 'County Kilkenny',
+    addressCountry: 'IE',
+  },
+  areaServed: 'County Kilkenny, Ireland',
+  description:
+    'Power washing services for driveways, patios, roofs, render, decking and farmyards/commercial premises across County Kilkenny.',
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Power Washing Services',
+    itemListElement: [
+      'Driveway Cleaning',
+      'Patio Cleaning',
+      'Roof Cleaning',
+      'Render Soft-Washing',
+      'Decking Restoration',
+      'Farmyard & Commercial',
+    ].map((name) => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', name } })),
+  },
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonical="https://kilkennypowerwashing.ie/"
+  jsonLd={[localBusinessSchema, faqSchema]}
+>
+  <Header />
+
+  <main>
+    <!-- ===== HERO ===== -->
+    <section class="bg-gradient-to-b from-primary/5 to-white">
+      <div class="mx-auto max-w-6xl px-4 py-12 md:py-20 grid gap-10 lg:grid-cols-2 lg:items-start">
+        <!-- Left: headline + CTAs -->
+        <div>
+          <h1 class="text-3xl md:text-5xl font-bold tracking-tight text-slate-900 leading-tight">
+            Power Washing in Kilkenny — Driveways, Patios, Roofs &amp; More
+          </h1>
+          <p class="mt-4 text-lg text-slate-600">
+            Honest pricing. Local team. Fully insured. Free quotes within 24 hours.
+          </p>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a href="#quote-form" class="btn-accent">Get a Free Quote</a>
+            <a href="tel:+353874041811" class="btn-outline">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.77h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l.77-.77a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.5 17z"/></svg>
+              Call 087 404 1811
+            </a>
+          </div>
+          <!-- Before/after image (visible on mobile, hidden on lg) -->
+          <img
+            src="/images/kilkenny-driveway-before-after.jpg"
+            alt="Before and after power washing of a Kilkenny driveway"
+            class="mt-8 w-full rounded-lg border border-slate-200 lg:hidden"
+            width="800"
+            height="450"
+            loading="eager"
+          />
+        </div>
+
+        <!-- Right: image (lg only) + quote form -->
+        <div id="quote-form" class="lg:pl-4">
+          <img
+            src="/images/kilkenny-driveway-before-after.jpg"
+            alt="Before and after power washing of a Kilkenny driveway"
+            class="hidden w-full rounded-lg border border-slate-200 mb-6 lg:block"
+            width="800"
+            height="450"
+            loading="eager"
+          />
+
+          <!-- Quote form -->
+          <div class="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
+            <h2 class="text-lg font-semibold text-slate-900 mb-4">Request Your Free Quote</h2>
+
+            <div id="form-success" class="hidden rounded-md bg-green-50 border border-green-200 p-4 text-sm text-green-800">
+              <strong>Thanks — we'll be in touch within 24 hours.</strong>
+            </div>
+            <div id="form-error" class="hidden rounded-md bg-red-50 border border-red-200 p-4 text-sm text-red-800">
+              Sorry, something went wrong. Please call <a href="tel:+353874041811" class="font-semibold underline">087 404 1811</a>.
+            </div>
+
+            <form id="lead-form" novalidate class="space-y-3 mt-1">
+              <div>
+                <label for="f-name" class="block text-xs font-medium text-slate-700 mb-1">Name <span aria-hidden="true">*</span></label>
+                <input id="f-name" name="name" type="text" required autocomplete="name" placeholder="Your name" class="form-input" />
+                <p class="field-error mt-1 hidden text-xs text-red-600"></p>
+              </div>
+
+              <div>
+                <label for="f-phone" class="block text-xs font-medium text-slate-700 mb-1">Phone <span aria-hidden="true">*</span></label>
+                <input id="f-phone" name="phone" type="tel" required autocomplete="tel" placeholder="087 000 0000" class="form-input" />
+                <p class="field-error mt-1 hidden text-xs text-red-600"></p>
+              </div>
+
+              <div>
+                <label for="f-email" class="block text-xs font-medium text-slate-700 mb-1">Email <span aria-hidden="true">*</span></label>
+                <input id="f-email" name="email" type="email" required autocomplete="email" placeholder="you@example.com" class="form-input" />
+                <p class="field-error mt-1 hidden text-xs text-red-600"></p>
+              </div>
+
+              <div>
+                <label for="f-service" class="block text-xs font-medium text-slate-700 mb-1">Service <span aria-hidden="true">*</span></label>
+                <select id="f-service" name="service" required class="form-input">
+                  <option value="">Select a service…</option>
+                  <option>Driveway Cleaning</option>
+                  <option>Patio Cleaning</option>
+                  <option>Roof Cleaning</option>
+                  <option>Render Soft-Washing</option>
+                  <option>Decking Restoration</option>
+                  <option>Farmyard &amp; Commercial</option>
+                  <option>Other</option>
+                </select>
+                <p class="field-error mt-1 hidden text-xs text-red-600"></p>
+              </div>
+
+              <div>
+                <label for="f-area" class="block text-xs font-medium text-slate-700 mb-1">Town / Area in Kilkenny <span aria-hidden="true">*</span></label>
+                <input id="f-area" name="area" type="text" required placeholder="e.g. Thomastown" class="form-input" />
+                <p class="field-error mt-1 hidden text-xs text-red-600"></p>
+              </div>
+
+              <div>
+                <label for="f-notes" class="block text-xs font-medium text-slate-700 mb-1">Notes <span class="text-slate-400">(optional)</span></label>
+                <textarea id="f-notes" name="notes" rows="3" maxlength="1000" placeholder="Any extra details…" class="form-input resize-none"></textarea>
+              </div>
+
+              <div class="flex items-start gap-2 pt-1">
+                <input id="f-consent" name="consent" type="checkbox" required class="mt-0.5 h-4 w-4 rounded border-slate-300 text-primary focus:ring-primary" />
+                <label for="f-consent" class="text-xs text-slate-600">
+                  I consent to my details being passed to a local contractor to provide a quote.
+                  See our <a href="/privacy" class="text-primary underline">Privacy Policy</a>.
+                </label>
+              </div>
+              <p id="consent-error" class="hidden text-xs text-red-600">Please tick the consent box to continue.</p>
+
+              <button
+                type="submit"
+                id="form-submit-btn"
+                class="btn-accent w-full mt-2"
+              >
+                Request My Free Quote
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TRUST STRIP ===== -->
+    <section class="border-y border-slate-100 bg-slate-50 py-6">
+      <div class="mx-auto max-w-6xl px-4">
+        <ul class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-around">
+          <li class="flex items-center gap-3 text-sm font-medium text-slate-700">
+            <span class="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </span>
+            Fully insured local contractor
+          </li>
+          <li class="flex items-center gap-3 text-sm font-medium text-slate-700">
+            <span class="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            </span>
+            Free no-obligation quotes
+          </li>
+          <li class="flex items-center gap-3 text-sm font-medium text-slate-700">
+            <span class="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            </span>
+            Serving all of County Kilkenny
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== SERVICES ===== -->
+    <section id="services" class="py-14 md:py-20">
+      <div class="mx-auto max-w-6xl px-4">
+        <h2 class="text-2xl md:text-3xl font-bold text-slate-900">Our services</h2>
+        <p class="mt-2 text-slate-500">Pick the job — get an honest quote within 24 hours.</p>
+        <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {services.map((s) => (
+            <div class="group rounded-lg border border-slate-200 bg-white p-6 hover:border-primary hover:shadow-md transition-all">
+              <div class="flex h-11 w-11 items-center justify-center rounded-md bg-primary/10 text-primary" set:html={s.icon} />
+              <h3 class="mt-4 text-base font-semibold text-slate-900 group-hover:text-primary">{s.name}</h3>
+              <p class="mt-1 text-sm text-slate-500">{s.short}</p>
+              <p class="mt-2 text-xs font-medium text-accent">{s.price}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== HOW IT WORKS ===== -->
+    <section class="bg-slate-50 py-14 md:py-20">
+      <div class="mx-auto max-w-6xl px-4">
+        <h2 class="text-2xl md:text-3xl font-bold text-slate-900">How it works</h2>
+        <p class="mt-2 text-slate-500">Three easy steps from first contact to a clean finish.</p>
+        <div class="mt-10 grid gap-8 md:grid-cols-3">
+          <div class="flex flex-col items-start gap-4">
+            <span class="flex h-12 w-12 items-center justify-center rounded-full bg-accent text-white text-lg font-bold">1</span>
+            <h3 class="text-lg font-semibold text-slate-900">Tell us what you need</h3>
+            <p class="text-sm text-slate-500">Fill in the quote form above or call us directly. Tell us the surface, the rough size and your town.</p>
+          </div>
+          <div class="flex flex-col items-start gap-4">
+            <span class="flex h-12 w-12 items-center justify-center rounded-full bg-accent text-white text-lg font-bold">2</span>
+            <h3 class="text-lg font-semibold text-slate-900">Get a free quote</h3>
+            <p class="text-sm text-slate-500">We'll come to site, assess the job and give you a clear, honest price. No obligation — you decide.</p>
+          </div>
+          <div class="flex flex-col items-start gap-4">
+            <span class="flex h-12 w-12 items-center justify-center rounded-full bg-accent text-white text-lg font-bold">3</span>
+            <h3 class="text-lg font-semibold text-slate-900">Job done</h3>
+            <p class="text-sm text-slate-500">The contractor arrives on the agreed day, does the work properly and leaves your property clean.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== AREAS WE COVER ===== -->
+    <section id="areas" class="py-14 md:py-20">
+      <div class="mx-auto max-w-6xl px-4">
+        <h2 class="text-2xl md:text-3xl font-bold text-slate-900">Areas we cover</h2>
+        <p class="mt-2 text-slate-500">We serve all of County Kilkenny, based out of Kilkenny City.</p>
+        <div class="mt-8 grid gap-3 grid-cols-2 sm:grid-cols-4">
+          {areas.map((a) => (
+            <div class="rounded-lg border border-slate-200 bg-white p-4 hover:border-primary hover:shadow-sm transition-all">
+              <div class="flex items-center gap-2 text-sm font-medium text-slate-800">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary flex-shrink-0" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                {a.name}
+              </div>
+              <p class="mt-1 text-xs text-slate-400">{a.nearby}</p>
+            </div>
+          ))}
+        </div>
+        <p class="mt-5 text-sm text-slate-500">
+          <strong>Also serving:</strong> Loughboy, Ferrybank, St Canice's, Kells, Mooncoin, Piltown, Inistioge, Stoneyford, Urlingford, Johnstown, and surrounding townlands.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== MAP ===== -->
+    <section class="bg-slate-50 py-14 md:py-20" id="about">
+      <div class="mx-auto max-w-6xl px-4">
+        <h2 class="text-2xl md:text-3xl font-bold text-slate-900">Where we work</h2>
+        <p class="mt-2 text-slate-500">Centred on Kilkenny City — covering the whole county.</p>
+        <div class="mt-6 overflow-hidden rounded-lg border border-slate-200 aspect-video">
+          <iframe
+            title="Service area map — County Kilkenny, Ireland"
+            src="https://www.google.com/maps?q=Kilkenny,Ireland&output=embed"
+            class="h-full w-full"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <div class="mt-8 rounded-lg border border-slate-200 bg-white p-6">
+          <h3 class="text-lg font-semibold text-slate-900 mb-2">About this service</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Kilkennypowerwashing.ie connects homeowners and businesses across County Kilkenny with a
+            vetted, fully-insured local power washing contractor. We handle the enquiry; the
+            contractor handles the job. You get honest pricing, a professional clean, and the
+            confidence of dealing with a local team that knows Kilkenny.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="py-14 md:py-20">
+      <div class="mx-auto max-w-3xl px-4">
+        <h2 class="text-2xl md:text-3xl font-bold text-slate-900">Frequently asked questions</h2>
+        <div class="mt-8 divide-y divide-slate-200">
+          {faqs.map((item) => (
+            <details class="group py-1">
+              <summary class="flex cursor-pointer select-none items-center justify-between gap-4 py-4 text-left text-sm font-medium text-slate-900 hover:text-primary">
+                {item.q}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="flex-shrink-0 text-slate-400 transition-transform group-open:rotate-180"
+                  aria-hidden="true"
+                >
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </summary>
+              <p class="pb-5 text-sm leading-relaxed text-slate-600">{item.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FINAL CTA ===== -->
+    <section class="bg-primary py-16 md:py-20">
+      <div class="mx-auto max-w-3xl px-4 text-center">
+        <h2 class="text-2xl md:text-3xl font-bold text-white">Ready for a clean finish?</h2>
+        <p class="mt-3 text-primary-foreground/80">
+          Get a free, no-obligation quote — usually within 24 hours.
+        </p>
+        <div class="mt-8 flex flex-wrap justify-center gap-4">
+          <a
+            href="#quote-form"
+            class="inline-flex items-center justify-center rounded-md bg-accent px-8 py-3 text-sm font-semibold text-white shadow-sm hover:bg-accent-dark transition-colors"
+          >
+            Request a Quote
+          </a>
+          <a
+            href="tel:+353874041811"
+            class="inline-flex items-center gap-2 rounded-md border border-white/40 bg-white/10 px-8 py-3 text-sm font-semibold text-white hover:bg-white/20 transition-colors"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.77h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l.77-.77a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.5 17z"/></svg>
+            087 404 1811
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<script>
+  const form = document.getElementById('lead-form') as HTMLFormElement | null;
+  const successEl = document.getElementById('form-success')!;
+  const errorEl = document.getElementById('form-error')!;
+  const consentError = document.getElementById('consent-error')!;
+  const submitBtn = document.getElementById('form-submit-btn') as HTMLButtonElement;
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // Clear previous errors
+    errorEl.classList.add('hidden');
+    consentError.classList.add('hidden');
+
+    const consent = (form.elements.namedItem('consent') as HTMLInputElement).checked;
+    if (!consent) {
+      consentError.classList.remove('hidden');
+      return;
+    }
+
+    submitBtn.textContent = 'Sending…';
+    submitBtn.disabled = true;
+
+    const fd = new FormData(form);
+    const payload: Record<string, string> = {};
+    for (const [k, v] of fd.entries()) {
+      if (k !== 'consent') payload[k] = v as string;
+    }
+    // Remove empty notes
+    if (!payload.notes) delete payload.notes;
+
+    try {
+      const res = await fetch('/.netlify/functions/submit-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+      form.hidden = true;
+      successEl.classList.remove('hidden');
+    } catch {
+      errorEl.classList.remove('hidden');
+      submitBtn.textContent = 'Request My Free Quote';
+      submitBtn.disabled = false;
+    }
+  });
+</script>

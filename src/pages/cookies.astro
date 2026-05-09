@@ -1,0 +1,84 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const updated = new Date().toLocaleDateString('en-IE', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+
+<Layout
+  title="Cookie Policy | Kilkenny Power Washing"
+  description="How kilkennypowerwashing.ie uses cookies and how you can manage your cookie preferences."
+  canonical="https://kilkennypowerwashing.ie/cookies"
+>
+  <Header />
+  <main>
+    <article class="mx-auto max-w-3xl px-4 py-12">
+      <h1 class="text-3xl font-bold text-slate-900 md:text-4xl">Cookie Policy</h1>
+      <p class="mt-2 text-sm text-slate-500">Last updated: {updated}</p>
+
+      <div class="mt-8 space-y-8 text-sm leading-relaxed text-slate-700">
+        <section>
+          <h2 class="text-lg font-semibold text-slate-900 mb-2">What are cookies?</h2>
+          <p>
+            Cookies are small text files placed on your device when you visit a website. They help sites work properly,
+            remember your preferences, and gather anonymous usage data.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg font-semibold text-slate-900 mb-2">Cookies we use</h2>
+          <div class="overflow-x-auto">
+            <table class="w-full border-collapse text-sm">
+              <thead>
+                <tr class="border-b border-slate-200">
+                  <th class="py-2 pr-4 text-left font-semibold text-slate-900">Category</th>
+                  <th class="py-2 pr-4 text-left font-semibold text-slate-900">Purpose</th>
+                  <th class="py-2 text-left font-semibold text-slate-900">Required?</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-100">
+                <tr>
+                  <td class="py-3 pr-4 font-medium">Essential</td>
+                  <td class="py-3 pr-4 text-slate-600">Stores your cookie consent preference so we don't ask again.</td>
+                  <td class="py-3 text-slate-600">Always on</td>
+                </tr>
+                <tr>
+                  <td class="py-3 pr-4 font-medium">Analytics</td>
+                  <td class="py-3 pr-4 text-slate-600">Anonymous page-view data to help us improve the site. Off by default.</td>
+                  <td class="py-3 text-slate-600">Optional</td>
+                </tr>
+                <tr>
+                  <td class="py-3 pr-4 font-medium">Marketing</td>
+                  <td class="py-3 pr-4 text-slate-600">Used to measure advertising campaigns. Off by default.</td>
+                  <td class="py-3 text-slate-600">Optional</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section>
+          <h2 class="text-lg font-semibold text-slate-900 mb-2">Managing your preferences</h2>
+          <p>
+            When you first visit the site, a banner lets you accept all, reject all, or customise which categories are
+            enabled. Your choice is stored in your browser's local storage under the key
+            <code class="rounded bg-slate-100 px-1 py-0.5 font-mono text-xs">kpw-cookie-consent-v1</code>.
+          </p>
+          <p class="mt-2">
+            You can also manage or delete cookies directly in your browser settings at any time.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg font-semibold text-slate-900 mb-2">Questions?</h2>
+          <p>
+            Email us at{' '}
+            <a href="mailto:kilkennypowerwash@gmail.com" class="text-primary underline">kilkennypowerwash@gmail.com</a>.
+          </p>
+        </section>
+      </div>
+    </article>
+  </main>
+  <Footer />
+</Layout>
