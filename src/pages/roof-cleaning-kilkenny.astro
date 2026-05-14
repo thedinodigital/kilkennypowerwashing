@@ -1,0 +1,287 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import { SITE } from '../data/site';
+
+const title = "Roof Cleaning Kilkenny | Soft Wash & Moss Removal | From €350";
+const description = "Safe roof cleaning in Kilkenny using soft-wash and biocide. Moss, algae & lichen removed from tile and slate roofs. Free quote within 24 hours.";
+const canonical = "https://kilkennypowerwashing.ie/roof-cleaning-kilkenny";
+
+const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Roof Cleaning",
+    "serviceType": "Roof Cleaning",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Kilkenny Power Washing",
+      "url": "https://kilkennypowerwashing.ie",
+      "telephone": "+353874041811",
+      "areaServed": "County Kilkenny, Ireland"
+    },
+    "areaServed": {
+      "@type": "AdministrativeArea",
+      "name": "County Kilkenny, Ireland"
+    },
+    "description": "Safe roof cleaning in Kilkenny using soft-wash and biocide. Moss, algae & lichen removed from tile and slate roofs. Free quote within 24 hours.",
+    "url": "https://kilkennypowerwashing.ie/roof-cleaning-kilkenny",
+    "offers": {
+      "@type": "Offer",
+      "priceCurrency": "EUR",
+      "price": "350",
+      "url": "https://kilkennypowerwashing.ie/roof-cleaning-kilkenny"
+    }
+  };
+
+const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Will it damage my roof tiles or slates?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No — that&rsquo;s the whole point of the soft-wash method. We never use high pressure on a roof. The biocide does the work; the chemical kills the moss back at the root and rain washes the dead growth away over the following weeks."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Will the moss come straight back?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Not straight away. A professional biocide treatment typically gives you 3–5 years before any noticeable re-growth, and we offer a discounted maintenance application to extend that further."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you clean the gutters at the same time?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes — clearing moss debris from the gutters is included in every roof clean. We&rsquo;ll flag it separately if your gutters need a full vacuum clean on top."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is it safe? Do you have insurance?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Public liability cover is in place. We use fall-protection equipment, work from roof ladders or scaffold towers where needed, and never compromise on safety to save time."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can you paint or recoat the roof afterwards?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Roof painting is a separate service we can quote for once the roof is clean and dry. We&rsquo;ll be straight with you about whether painting is worth doing for your roof type — for some, it isn&rsquo;t."
+        }
+      }
+    ]
+  };
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonical={canonical}
+  jsonLd={[serviceSchema, faqSchema]}
+>
+  <Header />
+
+  <main>
+    <!-- ===== HERO ===== -->
+    <section class="bg-gradient-to-b from-primary/5 to-white">
+      <div class="mx-auto max-w-6xl px-4 py-12 md:py-16 grid gap-10 lg:grid-cols-2 lg:items-start">
+        <div>
+          <nav class="text-xs text-slate-500 mb-3" aria-label="Breadcrumb">
+            <a href="/" class="hover:text-primary">Home</a>
+            <span class="mx-1">/</span>
+            <span class="text-slate-700">Roof Cleaning</span>
+          </nav>
+
+          <h1 class="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 leading-tight">
+            Roof Cleaning in Kilkenny
+          </h1>
+          <p class="mt-4 text-lg text-slate-600">
+            A moss-covered roof isn&rsquo;t just an eyesore — it holds moisture against tiles and slates, lifts edges, blocks gutters and shortens the roof&rsquo;s working life.
+          </p>
+          <p class="mt-4 text-lg text-slate-600">
+            We safely remove moss, algae and lichen from roofs across County Kilkenny using a soft-wash method and biocide treatment that gets results without damaging the roof. Roof cleans start at €350, take half a day to a full day, and come with a free quote within 24 hours.
+          </p>
+
+          <div class="mt-6 flex flex-col gap-3 sm:flex-row">
+            <a href="#quote-form" class="btn-accent">Get a Free Quote</a>
+            <a href={`tel:${SITE.phoneTel}`} class="btn-outline">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.77h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l.77-.77a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.5 17z"/></svg>
+              Call {SITE.phone}
+            </a>
+            <a
+              href={SITE.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-center gap-2 rounded-md px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:opacity-90"
+              style="background-color: #25D366;"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+              WhatsApp
+            </a>
+          </div>
+
+          <ul class="mt-6 text-sm text-slate-600 space-y-1.5">
+            <li class="flex gap-2"><span class="text-accent">✓</span><span>Fully insured local team</span></li>
+            <li class="flex gap-2"><span class="text-accent">✓</span><span>Free no-obligation quotes</span></li>
+            <li class="flex gap-2"><span class="text-accent">✓</span><span>Serving all of County Kilkenny</span></li>
+          </ul>
+        </div>
+
+        <div class="lg:pl-4">
+          <QuoteForm preselectService="Roof Cleaning" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== WHAT'S INCLUDED + SURFACES ===== -->
+    <section class="py-12 md:py-16">
+      <div class="mx-auto max-w-6xl px-4 grid gap-10 md:grid-cols-2">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-slate-900">What's included</h2>
+          <ul class="mt-6 space-y-2 text-slate-700">
+          <li class="flex gap-2"><span class="text-accent">✓</span><span>Site survey — we walk the roof line and identify problem areas</span></li>
+          <li class="flex gap-2"><span class="text-accent">✓</span><span>Removal of loose moss with hand tools and soft brushes (no blasting)</span></li>
+          <li class="flex gap-2"><span class="text-accent">✓</span><span>Low-pressure soft-wash application of a professional-grade biocide</span></li>
+          <li class="flex gap-2"><span class="text-accent">✓</span><span>Gutters cleared of moss debris as part of the job (no extra charge)</span></li>
+          <li class="flex gap-2"><span class="text-accent">✓</span><span>Optional follow-up biocide application 6–12 months later for long-term protection</span></li>
+          <li class="flex gap-2"><span class="text-accent">✓</span><span>All work carried out by an insured operator using fall-protection equipment</span></li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-slate-900">Surfaces we clean</h2>
+          <ul class="mt-6 space-y-2 text-slate-700">
+          <li class="flex gap-2"><span class="text-accent">✓</span><span>Concrete tile roofs (Marley, Sandtoft, Tudor, Wessex etc.)</span></li>
+          <li class="flex gap-2"><span class="text-accent">✓</span><span>Natural slate and fibre-cement slate</span></li>
+          <li class="flex gap-2"><span class="text-accent">✓</span><span>Clay tile roofs</span></li>
+          <li class="flex gap-2"><span class="text-accent">✓</span><span>Flat felt and EPDM roofs (where appropriate)</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PRICING ===== -->
+    <section class="bg-slate-50 py-12 md:py-16 border-y border-slate-200">
+      <div class="mx-auto max-w-6xl px-4">
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-slate-900">Roof Cleaning prices in Kilkenny</h2>
+        <p class="mt-3 text-slate-600 leading-relaxed max-w-3xl">Final price depends on the size of the roof, its pitch, access and how badly affected it is. Typical ranges for a domestic property in Kilkenny:</p>
+        <ul class="mt-6 grid gap-2 text-slate-700 max-w-3xl">
+          <li class="flex gap-2"><span class="text-accent">€</span><span>Small bungalow / single-storey extension: €350–€500</span></li>
+          <li class="flex gap-2"><span class="text-accent">€</span><span>Average 3-bed semi: €500–€700</span></li>
+          <li class="flex gap-2"><span class="text-accent">€</span><span>Larger 4-bed detached / steep-pitch: €700–€900</span></li>
+          <li class="flex gap-2"><span class="text-accent">€</span><span>Larger properties and commercial roofs: quoted on site</span></li>
+        </ul>
+        <p class="mt-4 text-sm text-slate-500 max-w-3xl">
+          Final quote depends on site, condition and access. Free, no-obligation quote within 24 hours.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== PROCESS / DETAILS ===== -->
+    <section class="py-12 md:py-16">
+      <div class="mx-auto max-w-6xl px-4 grid gap-10 md:grid-cols-2">
+      <div>
+        <h3 class="text-xl font-semibold text-slate-900">Why we use soft-washing, not high-pressure blasting</h3>
+        <p class="mt-3 text-slate-600 leading-relaxed">High-pressure washing strips the protective glaze off concrete tiles, lifts felt and pulls slates loose. It&rsquo;s the single most common cause of roofs needing replacement years before they should. We don&rsquo;t do it.</p>
+        <p class="mt-3 text-slate-600 leading-relaxed">Instead, we use a soft-wash method: low-pressure application of a biocide that kills moss, algae and lichen at the root. Loose debris is gently brushed and rinsed off, and the biocide continues to work in the surface for months — so re-growth is far slower than after a pressure blast.</p>
+      </div>
+
+      <div>
+        <h3 class="text-xl font-semibold text-slate-900">How long does it take?</h3>
+        <p class="mt-3 text-slate-600 leading-relaxed">Most domestic roofs are done in a single day. Larger or steeper roofs may extend to a second day. The biocide continues to work in the roof surface for 6–12 weeks after we leave — so the roof actually keeps getting cleaner for weeks once we&rsquo;ve finished.</p>
+      </div>
+
+      <div>
+        <h3 class="text-xl font-semibold text-slate-900">How often should you clean a roof?</h3>
+        <p class="mt-3 text-slate-600 leading-relaxed">Most Kilkenny roofs benefit from a clean every 3–5 years, plus an optional maintenance biocide treatment in between. Roofs shaded by trees or facing north tend to moss up faster than south-facing ones.</p>
+      </div>
+
+      <div>
+        <h3 class="text-xl font-semibold text-slate-900">Areas we cover</h3>
+        <p class="mt-3 text-slate-600 leading-relaxed">All of County Kilkenny — Kilkenny City, Loughboy, Ferrybank, St Canice&rsquo;s, Callan, Thomastown, Castlecomer, Graiguenamanagh, Bennettsbridge, Freshford, Gowran and surrounding villages.</p>
+      </div>
+      </div>
+    </section>
+
+    <!-- ===== FAQs ===== -->
+    <section class="bg-slate-50 py-12 md:py-16 border-y border-slate-200">
+      <div class="mx-auto max-w-3xl px-4">
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-slate-900">Frequently asked questions</h2>
+        <div class="mt-6 space-y-3">
+          <details class="group rounded-lg border border-slate-200 bg-white p-5">
+            <summary class="flex cursor-pointer items-center justify-between text-slate-900 font-medium">
+              <span>Will it damage my roof tiles or slates?</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-slate-400 transition-transform group-open:rotate-180" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <p class="mt-3 text-slate-600 leading-relaxed">No — that&rsquo;s the whole point of the soft-wash method. We never use high pressure on a roof. The biocide does the work; the chemical kills the moss back at the root and rain washes the dead growth away over the following weeks.</p>
+          </details>
+          <details class="group rounded-lg border border-slate-200 bg-white p-5">
+            <summary class="flex cursor-pointer items-center justify-between text-slate-900 font-medium">
+              <span>Will the moss come straight back?</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-slate-400 transition-transform group-open:rotate-180" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <p class="mt-3 text-slate-600 leading-relaxed">Not straight away. A professional biocide treatment typically gives you 3–5 years before any noticeable re-growth, and we offer a discounted maintenance application to extend that further.</p>
+          </details>
+          <details class="group rounded-lg border border-slate-200 bg-white p-5">
+            <summary class="flex cursor-pointer items-center justify-between text-slate-900 font-medium">
+              <span>Do you clean the gutters at the same time?</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-slate-400 transition-transform group-open:rotate-180" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <p class="mt-3 text-slate-600 leading-relaxed">Yes — clearing moss debris from the gutters is included in every roof clean. We&rsquo;ll flag it separately if your gutters need a full vacuum clean on top.</p>
+          </details>
+          <details class="group rounded-lg border border-slate-200 bg-white p-5">
+            <summary class="flex cursor-pointer items-center justify-between text-slate-900 font-medium">
+              <span>Is it safe? Do you have insurance?</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-slate-400 transition-transform group-open:rotate-180" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <p class="mt-3 text-slate-600 leading-relaxed">Yes. Public liability cover is in place. We use fall-protection equipment, work from roof ladders or scaffold towers where needed, and never compromise on safety to save time.</p>
+          </details>
+          <details class="group rounded-lg border border-slate-200 bg-white p-5">
+            <summary class="flex cursor-pointer items-center justify-between text-slate-900 font-medium">
+              <span>Can you paint or recoat the roof afterwards?</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-slate-400 transition-transform group-open:rotate-180" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <p class="mt-3 text-slate-600 leading-relaxed">Roof painting is a separate service we can quote for once the roof is clean and dry. We&rsquo;ll be straight with you about whether painting is worth doing for your roof type — for some, it isn&rsquo;t.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CTA + RELATED ===== -->
+    <section class="py-12 md:py-16">
+      <div class="mx-auto max-w-6xl px-4 grid gap-10 md:grid-cols-2 md:items-start">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-slate-900">Ready for a clean finish?</h2>
+          <p class="mt-3 text-slate-600 leading-relaxed">
+            Get a free, no-obligation quote — usually within 24 hours.
+          </p>
+          <div class="mt-6 flex flex-col gap-3 sm:flex-row">
+            <a href="#quote-form" class="btn-accent">Request a Quote</a>
+            <a href={`tel:${SITE.phoneTel}`} class="btn-outline">{SITE.phone}</a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-semibold text-slate-900">Other services we offer</h3>
+          <ul class="mt-3 space-y-2 text-sm">
+            <li><a href="/soft-washing-kilkenny" class="text-primary hover:text-primary-dark">Soft Washing</a></li>
+            <li><a href="/gutter-cleaning-kilkenny" class="text-primary hover:text-primary-dark">Gutter Cleaning</a></li>
+            <li><a href="/render-cleaning-kilkenny" class="text-primary hover:text-primary-dark">Render Cleaning</a></li>
+            <li><a href="/driveway-cleaning-kilkenny" class="text-primary hover:text-primary-dark">Driveway Cleaning</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

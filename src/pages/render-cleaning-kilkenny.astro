@@ -1,0 +1,287 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import { SITE } from '../data/site';
+
+const title = "Render Cleaning Kilkenny | Pebbledash & Painted Render Wash";
+const description = "Render cleaning in Kilkenny — pebbledash, painted render and silicone render. Soft-wash method, no damage. Free quote within 24 hours.";
+const canonical = "https://kilkennypowerwashing.ie/render-cleaning-kilkenny";
+
+const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Render Cleaning",
+    "serviceType": "Render Cleaning",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Kilkenny Power Washing",
+      "url": "https://kilkennypowerwashing.ie",
+      "telephone": "+353874041811",
+      "areaServed": "County Kilkenny, Ireland"
+    },
+    "areaServed": {
+      "@type": "AdministrativeArea",
+      "name": "County Kilkenny, Ireland"
+    },
+    "description": "Render cleaning in Kilkenny — pebbledash, painted render and silicone render. Soft-wash method, no damage. Free quote within 24 hours.",
+    "url": "https://kilkennypowerwashing.ie/render-cleaning-kilkenny",
+    "offers": {
+      "@type": "Offer",
+      "priceCurrency": "EUR",
+      "price": "250",
+      "url": "https://kilkennypowerwashing.ie/render-cleaning-kilkenny"
+    }
+  };
+
+const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Will it remove the staining straight away?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Some of it, yes — but the biocide does most of the work over the 4–8 weeks after we leave. The wall keeps clearing as rain washes the dead algae out of the surface."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Will it harm my windows or window frames?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. We rinse glass and frames as we go, and the working concentration is safe on UPVC, aluminium and timber frames."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can you clean K-Rend or silicone render without discolouring it?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes — soft washing is the only safe method for through-coloured renders like K-Rend. Pressure washing absolutely will discolour them."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you do the gutters and fascias at the same time?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, we can add fascia and soffit cleaning to the same visit. We&rsquo;ll quote them separately so you can decide."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Will it harm the lawn or shrubs?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No — we protect planting before we start and rinse any drift immediately. The biocide is used at safe working concentration."
+        }
+      }
+    ]
+  };
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonical={canonical}
+  jsonLd={[serviceSchema, faqSchema]}
+>
+  <Header />
+
+  <main>
+    <!-- ===== HERO ===== -->
+    <section class="bg-gradient-to-b from-primary/5 to-white">
+      <div class="mx-auto max-w-6xl px-4 py-12 md:py-16 grid gap-10 lg:grid-cols-2 lg:items-start">
+        <div>
+          <nav class="text-xs text-slate-500 mb-3" aria-label="Breadcrumb">
+            <a href="/" class="hover:text-primary">Home</a>
+            <span class="mx-1">/</span>
+            <span class="text-slate-700">Render Cleaning</span>
+          </nav>
+
+          <h1 class="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 leading-tight">
+            Render Cleaning in Kilkenny
+          </h1>
+          <p class="mt-4 text-lg text-slate-600">
+            Green and black staining on a rendered wall isn&rsquo;t dirt — it&rsquo;s algae and lichen feeding on moisture in the surface. Pressure-washing it makes it look worse: it opens up the render, drives water in and the staining returns within a year.
+          </p>
+          <p class="mt-4 text-lg text-slate-600">
+            We use a soft-wash method instead — gentle, effective, and built to last 2 to 4 years before any noticeable re-growth. Render cleans across Kilkenny typically run from €250 to €700. Free quote within 24 hours.
+          </p>
+
+          <div class="mt-6 flex flex-col gap-3 sm:flex-row">
+            <a href="#quote-form" class="btn-accent">Get a Free Quote</a>
+            <a href={`tel:${SITE.phoneTel}`} class="btn-outline">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.77h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l.77-.77a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.5 17z"/></svg>
+              Call {SITE.phone}
+            </a>
+            <a
+              href={SITE.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-center gap-2 rounded-md px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:opacity-90"
+              style="background-color: #25D366;"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+              WhatsApp
+            </a>
+          </div>
+
+          <ul class="mt-6 text-sm text-slate-600 space-y-1.5">
+            <li class="flex gap-2"><span class="text-accent">✓</span><span>Fully insured local team</span></li>
+            <li class="flex gap-2"><span class="text-accent">✓</span><span>Free no-obligation quotes</span></li>
+            <li class="flex gap-2"><span class="text-accent">✓</span><span>Serving all of County Kilkenny</span></li>
+          </ul>
+        </div>
+
+        <div class="lg:pl-4">
+          <QuoteForm preselectService="Render Cleaning" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== WHAT'S INCLUDED + SURFACES ===== -->
+    <section class="py-12 md:py-16">
+      <div class="mx-auto max-w-6xl px-4 grid gap-10 md:grid-cols-2">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-slate-900">What's included</h2>
+          <ul class="mt-6 space-y-2 text-slate-700">
+          <li class="flex gap-2"><span class="text-accent">✓</span><span>A walk-around survey to check the render type, condition and any cracks before we start</span></li>
+          <li class="flex gap-2"><span class="text-accent">✓</span><span>Protection of planting, windows and doors</span></li>
+          <li class="flex gap-2"><span class="text-accent">✓</span><span>Low-pressure soft-wash application of a professional biocide</span></li>
+          <li class="flex gap-2"><span class="text-accent">✓</span><span>Gentle rinse where needed — never high-pressure on render</span></li>
+          <li class="flex gap-2"><span class="text-accent">✓</span><span>Optional follow-up biocide application 12–24 months later</span></li>
+          <li class="flex gap-2"><span class="text-accent">✓</span><span>Fully insured operator — public liability on every job</span></li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-slate-900">Surfaces we clean</h2>
+          <ul class="mt-6 space-y-2 text-slate-700">
+          <li class="flex gap-2"><span class="text-accent">✓</span><span>Pebbledash and dry-dash render (the classic textured Irish finish)</span></li>
+          <li class="flex gap-2"><span class="text-accent">✓</span><span>Painted render (smooth or sand-textured)</span></li>
+          <li class="flex gap-2"><span class="text-accent">✓</span><span>Self-coloured silicone render and acrylic render</span></li>
+          <li class="flex gap-2"><span class="text-accent">✓</span><span>K-Rend and similar through-coloured systems</span></li>
+          <li class="flex gap-2"><span class="text-accent">✓</span><span>Wet-dash and roughcast</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PRICING ===== -->
+    <section class="bg-slate-50 py-12 md:py-16 border-y border-slate-200">
+      <div class="mx-auto max-w-6xl px-4">
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-slate-900">Render Cleaning prices in Kilkenny</h2>
+        <p class="mt-3 text-slate-600 leading-relaxed max-w-3xl">Final price depends on wall area, height, access and how badly affected the render is. Typical ranges in Kilkenny:</p>
+        <ul class="mt-6 grid gap-2 text-slate-700 max-w-3xl">
+          <li class="flex gap-2"><span class="text-accent">€</span><span>Single gable wall: €200–€350</span></li>
+          <li class="flex gap-2"><span class="text-accent">€</span><span>Full house exterior render clean: €450–€700</span></li>
+          <li class="flex gap-2"><span class="text-accent">€</span><span>Larger properties or limited access: quoted on site</span></li>
+        </ul>
+        <p class="mt-4 text-sm text-slate-500 max-w-3xl">
+          Final quote depends on site, condition and access. Free, no-obligation quote within 24 hours.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== PROCESS / DETAILS ===== -->
+    <section class="py-12 md:py-16">
+      <div class="mx-auto max-w-6xl px-4 grid gap-10 md:grid-cols-2">
+      <div>
+        <h3 class="text-xl font-semibold text-slate-900">Why pressure-washing render is a bad idea</h3>
+        <p class="mt-3 text-slate-600 leading-relaxed">Render is a porous, relatively soft surface. High-pressure water blasts off the sand finish, opens up cracks and drives moisture deep into the wall. The wall looks clean for a couple of weeks, then comes back greener than before because the spores have been forced further into the surface, not killed.</p>
+        <p class="mt-3 text-slate-600 leading-relaxed">Soft washing kills the algae and lichen at the spore level, leaves the render intact, and keeps working for weeks after we leave.</p>
+      </div>
+
+      <div>
+        <h3 class="text-xl font-semibold text-slate-900">How long does it take?</h3>
+        <p class="mt-3 text-slate-600 leading-relaxed">Most domestic render jobs are completed in a single day. The biocide continues to work in the render over the following 4 to 8 weeks — the wall keeps getting cleaner after we&rsquo;ve finished.</p>
+      </div>
+
+      <div>
+        <h3 class="text-xl font-semibold text-slate-900">Will the staining come back?</h3>
+        <p class="mt-3 text-slate-600 leading-relaxed">Eventually — moss and algae are part of the Irish climate. A professional treatment typically gives 2 to 4 years before any noticeable re-growth. A small maintenance application every couple of years extends that significantly.</p>
+      </div>
+
+      <div>
+        <h3 class="text-xl font-semibold text-slate-900">Areas we cover</h3>
+        <p class="mt-3 text-slate-600 leading-relaxed">All of County Kilkenny — Kilkenny City, Loughboy, Ferrybank, Callan, Thomastown, Castlecomer, Graiguenamanagh, Bennettsbridge, Freshford, Gowran, Mooncoin, Piltown and surrounding areas.</p>
+      </div>
+      </div>
+    </section>
+
+    <!-- ===== FAQs ===== -->
+    <section class="bg-slate-50 py-12 md:py-16 border-y border-slate-200">
+      <div class="mx-auto max-w-3xl px-4">
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-slate-900">Frequently asked questions</h2>
+        <div class="mt-6 space-y-3">
+          <details class="group rounded-lg border border-slate-200 bg-white p-5">
+            <summary class="flex cursor-pointer items-center justify-between text-slate-900 font-medium">
+              <span>Will it remove the staining straight away?</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-slate-400 transition-transform group-open:rotate-180" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <p class="mt-3 text-slate-600 leading-relaxed">Some of it, yes — but the biocide does most of the work over the 4–8 weeks after we leave. The wall keeps clearing as rain washes the dead algae out of the surface.</p>
+          </details>
+          <details class="group rounded-lg border border-slate-200 bg-white p-5">
+            <summary class="flex cursor-pointer items-center justify-between text-slate-900 font-medium">
+              <span>Will it harm my windows or window frames?</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-slate-400 transition-transform group-open:rotate-180" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <p class="mt-3 text-slate-600 leading-relaxed">No. We rinse glass and frames as we go, and the working concentration is safe on UPVC, aluminium and timber frames.</p>
+          </details>
+          <details class="group rounded-lg border border-slate-200 bg-white p-5">
+            <summary class="flex cursor-pointer items-center justify-between text-slate-900 font-medium">
+              <span>Can you clean K-Rend or silicone render without discolouring it?</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-slate-400 transition-transform group-open:rotate-180" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <p class="mt-3 text-slate-600 leading-relaxed">Yes — soft washing is the only safe method for through-coloured renders like K-Rend. Pressure washing absolutely will discolour them.</p>
+          </details>
+          <details class="group rounded-lg border border-slate-200 bg-white p-5">
+            <summary class="flex cursor-pointer items-center justify-between text-slate-900 font-medium">
+              <span>Do you do the gutters and fascias at the same time?</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-slate-400 transition-transform group-open:rotate-180" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <p class="mt-3 text-slate-600 leading-relaxed">Yes, we can add fascia and soffit cleaning to the same visit. We&rsquo;ll quote them separately so you can decide.</p>
+          </details>
+          <details class="group rounded-lg border border-slate-200 bg-white p-5">
+            <summary class="flex cursor-pointer items-center justify-between text-slate-900 font-medium">
+              <span>Will it harm the lawn or shrubs?</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-slate-400 transition-transform group-open:rotate-180" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <p class="mt-3 text-slate-600 leading-relaxed">No — we protect planting before we start and rinse any drift immediately. The biocide is used at safe working concentration.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CTA + RELATED ===== -->
+    <section class="py-12 md:py-16">
+      <div class="mx-auto max-w-6xl px-4 grid gap-10 md:grid-cols-2 md:items-start">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-slate-900">Ready for a clean finish?</h2>
+          <p class="mt-3 text-slate-600 leading-relaxed">
+            Get a free, no-obligation quote — usually within 24 hours.
+          </p>
+          <div class="mt-6 flex flex-col gap-3 sm:flex-row">
+            <a href="#quote-form" class="btn-accent">Request a Quote</a>
+            <a href={`tel:${SITE.phoneTel}`} class="btn-outline">{SITE.phone}</a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-semibold text-slate-900">Other services we offer</h3>
+          <ul class="mt-3 space-y-2 text-sm">
+            <li><a href="/soft-washing-kilkenny" class="text-primary hover:text-primary-dark">Soft Washing</a></li>
+            <li><a href="/roof-cleaning-kilkenny" class="text-primary hover:text-primary-dark">Roof Cleaning</a></li>
+            <li><a href="/gutter-cleaning-kilkenny" class="text-primary hover:text-primary-dark">Gutter Cleaning</a></li>
+            <li><a href="/patio-cleaning-kilkenny" class="text-primary hover:text-primary-dark">Patio Cleaning</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
