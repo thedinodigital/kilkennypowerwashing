@@ -1,14 +1,6 @@
 ---
 import { SITE } from '../data/site';
-
-const services = [
-  { name: 'Driveway Cleaning', href: '/#services' },
-  { name: 'Patio Cleaning', href: '/#services' },
-  { name: 'Roof Cleaning', href: '/#services' },
-  { name: 'Render Soft-Washing', href: '/#services' },
-  { name: 'Decking Restoration', href: '/#services' },
-  { name: 'Farmyard & Commercial', href: '/#services' },
-];
+import { SERVICES } from '../data/services';
 
 const areas = [
   'Kilkenny City',
@@ -27,24 +19,20 @@ const year = new Date().getFullYear();
 <footer class="mt-16 border-t border-slate-200 bg-slate-50 pb-24 md:pb-10">
   <div class="mx-auto max-w-6xl px-4 py-12 grid gap-10 md:grid-cols-4">
 
-    <!-- Brand column -->
     <div>
       <div class="text-lg font-semibold text-primary">{SITE.name}</div>
       <p class="mt-3 text-sm text-slate-500">
         Driveways, patios, roofs and more — covering all of County Kilkenny.
       </p>
       <div class="mt-4 space-y-2 text-sm">
-        <!-- Phone -->
         <a href={`tel:${SITE.phoneTel}`} class="flex items-center gap-2 text-slate-700 hover:text-primary">
           <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.77h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l.77-.77a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.5 17z"/></svg>
           {SITE.phone}
         </a>
-        <!-- Email -->
         <a href={`mailto:${SITE.email}`} class="flex items-center gap-2 text-slate-700 hover:text-primary">
           <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
           {SITE.email}
         </a>
-        <!-- WhatsApp -->
         <a
           href={SITE.whatsappUrl}
           target="_blank"
@@ -57,19 +45,17 @@ const year = new Date().getFullYear();
       </div>
     </div>
 
-    <!-- Services column -->
     <div>
       <div class="text-sm font-semibold text-slate-900 mb-3">Services</div>
       <ul class="space-y-2 text-sm">
-        {services.map((s) => (
+        {SERVICES.map((s) => (
           <li>
-            <a href={s.href} class="text-slate-500 hover:text-primary">{s.name}</a>
+            <a href={s.slug} class="text-slate-500 hover:text-primary">{s.name}</a>
           </li>
         ))}
       </ul>
     </div>
 
-    <!-- Areas column -->
     <div>
       <div class="text-sm font-semibold text-slate-900 mb-3">Areas</div>
       <ul class="space-y-2 text-sm">
@@ -81,7 +67,6 @@ const year = new Date().getFullYear();
       </ul>
     </div>
 
-    <!-- Information column -->
     <div>
       <div class="text-sm font-semibold text-slate-900 mb-3">Information</div>
       <ul class="space-y-2 text-sm">
@@ -95,12 +80,7 @@ const year = new Date().getFullYear();
   </div>
 
   <div class="border-t border-slate-200">
-    <div class="mx-auto max-w-6xl px-4 py-6 space-y-2 text-xs text-slate-400">
-      <p>
-        Kilkennypowerwashing.ie is a local lead-generation service. Enquiries submitted through this
-        site are passed to a vetted, fully-insured local power washing contractor who will contact
-        you directly. We are not the service provider.
-      </p>
+    <div class="mx-auto max-w-6xl px-4 py-6 text-xs text-slate-400">
       <p>© {year} {SITE.domain} — All rights reserved.</p>
     </div>
   </div>
